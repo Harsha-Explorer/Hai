@@ -3,6 +3,7 @@ package com.app.hai.service;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,6 +28,8 @@ public class StorageService {
         File fileObj = convertMultiPartFileToFile(file);
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
         amazonS3.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
+        URL url = amazonS3.getUrl(bucketName, fileName);
+        System.out.println("S3 url --> " + url);
         fileObj.delete();
         return "File uploaded : " + fileName;
     }

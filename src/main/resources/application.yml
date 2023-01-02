@@ -1,14 +1,15 @@
 cloud:
     aws:
         credentials:
-            access-key: HHHHHHHHHHHHHHHHHHHHH
-            secret-key: AAAAAAAAAAAAAAAAAAAA
+            access-key: AKIAW3TDPMFXB5HVC76J
+            secret-key: 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
         region:
-            static: us-east-1
+            static: ap-south-1
         stack:
             auto: false
         endpoint:
-            url: http://localhost/4566
+            local-url: http://localhost/4566
+            url: s3.ap-south-1.amazonaws.com
 
 application:
     bucket:

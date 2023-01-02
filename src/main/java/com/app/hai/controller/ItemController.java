@@ -18,7 +18,12 @@ public class ItemController {
     private StorageService storageService;
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam(value = "file") MultipartFile file){
-        return new ResponseEntity<>(storageService.uploadFile(file),HttpStatus.OK);
+    public ResponseEntity<String> uploadFile(@RequestParam(value = "itemCatImage") MultipartFile itemCatImage,
+            @RequestParam(value = "data") String data, @RequestParam(value = "itemImage") MultipartFile itemImage) {
+        
+        storageService.uploadFile(itemCatImage);
+        storageService.uploadFile(itemImage);
+        System.out.println(data);
+        return new ResponseEntity<>("Successfully uploaded the images", HttpStatus.OK);
     }
 }

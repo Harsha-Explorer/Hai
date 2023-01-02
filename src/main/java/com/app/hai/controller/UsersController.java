@@ -19,22 +19,22 @@ public class UsersController {
     private UsersService usersService;
 
     @GetMapping("/getAllUsers")
-    public List<UsersModel> getAll(){
+    public List<UsersModel> getAll() {
         return userRepo.findAll();
     }
 
     @PostMapping("/users")
-    public ResponseEntity<String> addUsers(@RequestBody UsersModel usersModel){
+    public ResponseEntity<String> addUsers(@RequestBody UsersModel usersModel) {
         return usersService.addUser(usersModel);
     }
 
     @GetMapping("/users/{username}")
-    public ResponseEntity<String> findUserByUserName(@PathVariable String username){
+    public ResponseEntity<String> findUserByUserName(@PathVariable String username) {
         return usersService.getUser(username);
     }
 
     @PostMapping("user/login")
-    public ResponseEntity<String> checkValidUser(@RequestBody UsersModel usersModel){
+    public ResponseEntity<String> checkValidUser(@RequestBody UsersModel usersModel) {
         return usersService.checkUserInput(usersModel);
     }
 }
